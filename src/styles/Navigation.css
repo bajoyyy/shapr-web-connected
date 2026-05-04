@@ -1,0 +1,323 @@
+/* =============================================
+   Navigation.css  –  ShapR
+   ============================================= */
+
+/* ── Shell layout ── */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f0edf8;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #111827;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ── Sidebar ── */
+.nav-sidebar {
+  width: 210px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #f3f0fb;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.nav-brand {
+  font-size: 20px;
+  font-weight: 800;
+  color: #7C5BD6;
+  padding: 0 20px 28px;
+  letter-spacing: -0.3px;
+  transition: color 0.25s;
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item:hover {
+  background: #f5f3ff;
+  color: #7C5BD6;
+}
+
+.nav-item.active {
+  background: #7C5BD6;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-ico {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sico {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-label { white-space: nowrap; }
+
+.nav-divider {
+  height: 1px;
+  background: #f3f0fb;
+  margin: 8px 12px;
+  transition: background 0.25s;
+}
+
+/* ── Main area ── */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #f3f0fb;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.topbar-left { flex: 1; }
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.topbtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.15s, color 0.15s;
+}
+
+.topbtn:hover {
+  background: #f5f3ff;
+  color: #7C5BD6;
+}
+
+.topbtn.icon-only { padding: 6px 8px; }
+
+.topicon { display: flex; align-items: center; }
+.tico { width: 18px; height: 18px; }
+
+/* Night toggle active state */
+.night-toggle.active,
+.night-mode .night-toggle {
+  color: #a78bfa;
+}
+
+.topuser {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.topuser:hover { background: #f5f3ff; }
+
+.topavatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0d9f7;
+}
+
+.caret {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  min-width: 120px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #EF4444;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover { background: #fff1f1; }
+
+/* ── Page content ── */
+.page {
+  flex: 1;
+  padding: 24px 28px;
+  overflow-y: auto;
+}
+
+/* =============================================
+   NIGHT MODE  –  applied via .night-mode on .app-shell
+   Every child selector below is scoped to it
+   ============================================= */
+
+.night-mode {
+  background: #0f0f1a;
+  color: #e0e0f0;
+}
+
+/* Sidebar */
+.night-mode .nav-sidebar {
+  background: #16162a;
+  border-right-color: #2a2a45;
+}
+
+.night-mode .nav-brand { color: #a78bfa; }
+
+.night-mode .nav-item {
+  color: #9ca3b8;
+}
+
+.night-mode .nav-item:hover {
+  background: #1e1e38;
+  color: #c4b5fd;
+}
+
+.night-mode .nav-item.active {
+  background: #7C5BD6;
+  color: #ffffff;
+}
+
+.night-mode .nav-divider { background: #2a2a45; }
+
+/* Topbar */
+.night-mode .topbar {
+  background: #16162a;
+  border-bottom-color: #2a2a45;
+}
+
+.night-mode .topbtn {
+  color: #9ca3b8;
+}
+
+.night-mode .topbtn:hover {
+  background: #1e1e38;
+  color: #c4b5fd;
+}
+
+.night-mode .topuser:hover { background: #1e1e38; }
+
+.night-mode .topavatar { border-color: #3a3060; }
+
+.night-mode .caret { color: #6b7280; }
+
+/* Dropdown */
+.night-mode .user-dropdown {
+  background: #1e1e38;
+  border-color: #2a2a45;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.night-mode .dropdown-item { color: #f87171; }
+.night-mode .dropdown-item:hover { background: #2a1f1f; }
+
+/* Page background */
+.night-mode .page { background: #0f0f1a; }
+
+/* App.css overrides when night mode is active */
+.night-mode .main,
+.night-mode .content { background: #0f0f1a; }
+
+/* ProfileSettings overrides its own --bg via CSS vars.
+   Force the page wrapper background to match the dark shell. */
+.night-mode .profile-settings-page {
+  background: #0f0f1a !important;
+}
+
+/* Force page title and all text to be visible in night mode */
+.night-mode .psp-page-title,
+.night-mode .edit-title,
+.night-mode .ph-name,
+.night-mode .card-title,
+.night-mode .cp-title {
+  color: #f0eeff !important;
+}
+
+.night-mode .ph-role         { color: #a09abf !important; }
+.night-mode .ph-email        { color: #6b6585 !important; }
+.night-mode .privacy-label,
+.night-mode .nm-text h4,
+.night-mode .field-label,
+.night-mode .form-label,
+.night-mode .goal-value      { color: #c0c0d8 !important; }
+.night-mode .nm-text p       { color: #6b6585 !important; }
+
+.night-mode .profile-settings-page::before {
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(124,91,214,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(124,91,214,0.08) 0%, transparent 50%);
+}
